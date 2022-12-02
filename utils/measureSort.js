@@ -8,19 +8,35 @@ const quickSort = require("../sort/quickSort");
 
 const makeArr = require("./makeArr");
 
-const targetArr = makeArr(100000);
+const baseArr = makeArr(10000);
+const sortAlgorithms = [bubbleSort, insertionSort, selectionSort, selectionSort2, quickSort];
+// const targetSortAlgorithm = [selectionSort, selectionSort2];
 
-function measureSort(sortFnc) {
+const generateSameArr = () => [...baseArr];
+
+function measureSort(sortFnc, target) {
   const start = performance.now();
-  const arr = sortFnc(targetArr);
+  const sortedArr = sortFnc(target);
   const end = performance.now();
 
-  const elapseTime = `${sortFnc.name}: ${(end - start) / 1000} seconds.`;
+  const timePhrase = `${sortFnc.name}: ${(end - start) / 1000} seconds.`;
 
-  return { elapseTime, arr };
+  return { timePhrase, sortedArr };
 }
 
-function isSorted(arr) {
+function measureSortWithDate(sortFnc, target) {
+  const dateStart = new Date();
+  const sortedArr = sortFnc(target);
+  const dateEnd = new Date();
+
+  const timePhrase = `${sortFnc.name}: ${
+    (dateEnd.getTime() - dateStart.getTime()) / 1000
+  } seconds.`;
+
+  return { timePhrase, sortedArr };
+}
+
+function checkSorted(arr) {
   for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] > arr[i + 1]) {
       return false;
@@ -29,16 +45,16 @@ function isSorted(arr) {
   return true;
 }
 
-function testSort() {
-  // [bubbleSort, insertionSort, selectionSort, quickSort].forEach(sortFnc => {
-  // [selectionSort2, selectionSort].forEach(sortFnc => {
-  [selectionSort, selectionSort2].forEach(sortFnc => {
-    const { elapseTime, arr } = measureSort(sortFnc);
-    console.log(elapseTime);
+function testSort(targetSortAlgorithm = sortAlgorithms) {
+  targetSortAlgorithm.forEach(sortFnc => {
+    const targetArr = generateSameArr();
+    const { timePhrase, sortedArr } = measureSort(sortFnc, targetArr);
 
-    if (isSorted(arr) === false) {
+    if (checkSorted(sortedArr) === false) {
       console.log(`${sortFnc.name} Sort failed!`);
     }
+
+    console.log(timePhrase);
   });
 }
 

@@ -1,0 +1,9 @@
+{
+  "name": "sorting",
+  "version": "1.0.0",
+  "description": "provide sorting algorithms with performance check",
+  "main": "index.js",
+  "repository": "https://github.com/pinkishincoloragain/Sorting",
+  "author": "pinkishincoloragain",
+  "license": "MIT"
+}

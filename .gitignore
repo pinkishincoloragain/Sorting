@@ -1,0 +1,4 @@
+## Ignore File ##
+.DS_Store
+.idea
+node_modules/

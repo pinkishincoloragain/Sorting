@@ -1,7 +1,7 @@
 // selection Sort
 
 function selectionSort2(arr) {
-  let len = arr.length;
+  const len = arr.length;
   for (let i = 0; i < len; i += 1) {
     let min = i;
     for (let j = i + 1; j < len; j += 1) {

@@ -31,6 +31,7 @@ function isSorted(arr) {
 
 function testSort() {
   // [bubbleSort, insertionSort, selectionSort, quickSort].forEach(sortFnc => {
+  // [selectionSort2, selectionSort].forEach(sortFnc => {
   [selectionSort, selectionSort2].forEach(sortFnc => {
     const { elapseTime, arr } = measureSort(sortFnc);
     console.log(elapseTime);

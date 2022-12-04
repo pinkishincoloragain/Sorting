@@ -5,11 +5,19 @@ const insertionSort = require("../sort/insertionSort");
 const selectionSort = require("../sort/selectionSort");
 const selectionSort2 = require("../sort/selectionSort2");
 const quickSort = require("../sort/quickSort");
+const heapSort = require("../sort/heapSort");
 
 const makeArr = require("./makeArr");
 
 const baseArr = makeArr(10000);
-const sortAlgorithms = [bubbleSort, insertionSort, selectionSort, selectionSort2, quickSort];
+const sortAlgorithms = [
+  bubbleSort,
+  insertionSort,
+  selectionSort,
+  selectionSort2,
+  quickSort,
+  heapSort,
+];
 // const targetSortAlgorithm = [selectionSort, selectionSort2];
 
 const generateSameArr = () => [...baseArr];

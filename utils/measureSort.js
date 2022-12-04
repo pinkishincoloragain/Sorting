@@ -6,15 +6,17 @@ const selectionSort = require("../sort/selectionSort");
 const selectionSort2 = require("../sort/selectionSort2");
 const quickSort = require("../sort/quickSort");
 const heapSort = require("../sort/heapSort");
+const mergeSort = require("../sort/mergeSort");
 
 const makeArr = require("./makeArr");
 
-const baseArr = makeArr(10000);
+const baseArr = makeArr(50000);
 const sortAlgorithms = [
   bubbleSort,
   insertionSort,
   selectionSort,
   selectionSort2,
+  mergeSort,
   quickSort,
   heapSort,
 ];
